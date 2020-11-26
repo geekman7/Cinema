@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/films">Cinema</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <div class="navbar-nav-scroll">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link " routerLink="films">Films</a>
+          </li>
+        </ul>
+      </div>
+    
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-tem dropdown" *ngIf="!isAuth">
+          <a class="nav-link " routerLink="auth/signup">Créer un compte</a>
+        </li>
+
+        <li class="nav-tem dropdown" *ngIf="!isAuth">
+          <a class="nav-link " routerLink="auth/signin">Se connecter</a>
+        </li>
+        
+        <li class="nav-item dropdown" *ngIf="isAuth">
+          <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           
+          </a>
+          <div class="dropdown-menu dropdown-menu-rigth" style="font-size: 14px;" aria-labelledby="bd-versions">
+            <a class="dropdown-item" >{{ current }}</a>
+            <a class="dropdown-item" (click)="onSignOut()" style="cursor: pointer;" >Se Déconnecter</a>
+          </div>
+        </li>
+        </ul>
+
+    </div>
+  </nav>
